@@ -10,8 +10,8 @@
 
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="{{url('/')}}"><img src="images/logo.png" alt=""></a>
-                    <a href="{{url('/')}}" class="dashboard-logo"><img src="images/dashboard_logo.png" alt=""></a>
+                    <a href="{{url('/')}}"><img src="{{asset('images/logo.png')}}" alt=""></a>
+                    <a href="{{url('/')}}" class="dashboard-logo"><img src="{{asset('images/dashboard_logo.png')}}" alt=""></a>
                 </div>
 
                 <!-- Mobile Navigation -->
@@ -19,25 +19,20 @@
                     <i class="fa fa-reorder menu-trigger"></i>
                 </div>
                 <div class="clearfix"></div>
-                <!-- Main Navigation / End -->
 
             </div>
-            <!-- Left Side Content / End -->
 
-            <!-- Right Side Content / End -->
             <div class="right-side">
                 <!-- Header Widget -->
                 <div class="header-widget">
 
                     <!-- User Menu -->
                     <div class="user-menu">
-                        <div class="user-name"><span><img src="{{Auth::user()->userprofile}}" alt=""></span>
+                        <div class="user-name"><span><img src="{{asset(Auth::user()->userprofile)}}" alt=""></span>
                             {{Auth::user()->name}}
                         </div>
                         <ul>
-                            {{--<li><a href="{{url('dashboard')}}"><i class="sl sl-icon-settings"></i> Dashboard</a></li>--}}
-                            {{--<li><a href="{{url('message')}}"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>--}}
-                            {{--<li><a href="{{url('profile')}}"><i class="sl sl-icon-user"></i> My Profile</a></li>--}}
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

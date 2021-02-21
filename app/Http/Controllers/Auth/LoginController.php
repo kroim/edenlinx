@@ -1,8 +1,8 @@
 <?php
 
-namespace myapp\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use myapp\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/packages';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.

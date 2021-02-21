@@ -7,21 +7,46 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <form action="{{url('category/search')}}" method="POST">
+                            {{csrf_field()}}
+                            <div class="col-fs-5">
+                                <div class="input-with-icon">
+                                    <i class="sl sl-icon-magnifier"></i>
+                                    <input type="text" placeholder="What are you looking for?" name="categoryName"
+                                           value="@if(isset($categoryName)){{$categoryName}}@endif"/>
+                                </div>
+                            </div>
+
+                            <!-- Main Search Input -->
+                            <div class="col-fs-5">
+                                <div class="input-with-icon location">
+
+                                    <input type="text" placeholder="Postal code" value="@if(isset($postalCode)){{$postalCode}}@endif" name="postalCode"/>
+                                    <a href="#"><i class="fa fa-dot-circle-o"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-fs-2">
+                                <input type="submit" class="btn btn-danger" value="Search" style="border-radius: 3px;">
+                            </div>
+
+                        </form>
                         {{--<h2>Find Nearby Attractions</h2>--}}
                         {{--<h4>Expolore top-rated attractions, activities and more</h4>--}}
+                        {{--<form action="{{url('category/search')}}" method="POST">--}}
+                            {{--{{csrf_field()}}--}}
+                            {{--<div class="main-search-input">--}}
 
-                        <div class="main-search-input">
+                                {{--<div class="main-search-input-item">--}}
+                                    {{--<input type="text" placeholder="What can we help you with today?" name="categoryName"/>--}}
+                                {{--</div>--}}
 
-                            <div class="main-search-input-item">
-                                <input type="text" placeholder="What can we help you with today?" value=""/>
-                            </div>
+                                {{--<div class="main-search-input-item location">--}}
+                                    {{--<input type="text" placeholder="Your Postcode" name="postalCode"/>--}}
+                                {{--</div>--}}
+                                {{--<input type="submit" style="font-weight: 500" value="Search">--}}
 
-                            <div class="main-search-input-item location">
-                                <input type="text" placeholder="Your Postcode" value=""/>
-                            </div>
-                            <button class="button" onclick="window.location.href='#'">Search</button>
-
-                        </div>
+                            {{--</div>--}}
+                        {{--</form>--}}
                     </div>
                 </div>
             </div>
@@ -49,46 +74,46 @@
                 <div class="categories-boxes-container margin-top-5 margin-bottom-30 categories1">
 
                     <!-- Box -->
-                    <a href="#" class="category-small-box">
+                    <a class="category-small-box">
                         <i class="im im-icon-Hamburger"></i>
                         <h4>Eat & Drink</h4>
                     </a>
 
                     <!-- Box -->
-                    <a href="#" class="category-small-box">
+                    <a class="category-small-box">
                         <i class="im  im-icon-Sleeping"></i>
                         <h4>Hotels</h4>
                     </a>
 
                     <!-- Box -->
-                    <a href="#" class="category-small-box">
+                    <a class="category-small-box">
                         <i class="im im-icon-Shopping-Bag"></i>
                         <h4>Shops</h4>
                     </a>
 
                     <!-- Box -->
-                    <a href="#" class="category-small-box">
+                    <a class="category-small-box">
                         <i class="im im-icon-Cocktail"></i>
                         <h4>Nightlife</h4>
                     </a>
 
                     <!-- Box -->
-                    {{--<a href="listings-list-with-sidebar.html" class="category-small-box">--}}
-                        {{--<i class="im im-icon-Electric-Guitar"></i>--}}
-                        {{--<h4>Events</h4>--}}
-                    {{--</a>--}}
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Electric-Guitar"></i>
+                        <h4>Events</h4>
+                    </a>
 
-                    {{--<!-- Box -->--}}
-                    {{--<a href="listings-list-with-sidebar.html" class="category-small-box">--}}
-                        {{--<i class="im im-icon-Dumbbell"></i>--}}
-                        {{--<h4>Fitness</h4>--}}
-                    {{--</a>--}}
+                    <!-- Box -->
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Dumbbell"></i>
+                        <h4>Fitness</h4>
+                    </a>
 
                 </div>
             </div>
         </div>
         <div class="col-md-12 centered-content">
-            <a href="#" class="button border margin-top-10">View All</a>
+            <a href="{{url('category')}}" class="button border margin-top-10">View All</a>
         </div>
     </div>
     <!-- Fullwidth Section -->

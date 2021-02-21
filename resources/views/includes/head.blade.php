@@ -5,5 +5,6 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="{{asset('lib1/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('lib1/css/kun1.css')}}">
 <link rel="stylesheet" href="{{asset('lib1/css/colors/main.css')}}" id="colors">
 

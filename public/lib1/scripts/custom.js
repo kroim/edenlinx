@@ -1321,5 +1321,21 @@ $(document).ready(function () {
 		$('#myRatingLists li').not(':lt('+x+')').hide();
 	});
 });
+function setpackage(package_path, package_price, package_name) {
+	console.log(package_path);
+	console.log(package_price);
+	if(package_price == 0){
+        $('#setfree_package').click();
+	}else {
+        var success_path = package_path + '/' + package_name;
+        document.getElementById('package-amount').value = package_price;
+        document.getElementById('package-success').value = success_path;
+        console.log(success_path);
+        $('#package-pay-btn').click();
+	}
 
+}
+function setfreepackage(package_path, package_name) {
+
+}
 

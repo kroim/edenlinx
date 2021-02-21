@@ -1,5 +1,5 @@
-@extends('layouts.master')
-@section('title', 'HOME')
+@extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row">

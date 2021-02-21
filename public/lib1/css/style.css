@@ -2274,6 +2274,7 @@ button.panel-cancel:active { transform: translateY(-2px); }
 	box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.12);
 	position: relative;
 	padding-top: 80px;
+	margin-top: 59px;
 }
 
 .fs-inner-container {
@@ -4948,6 +4949,7 @@ body .style-2 .trigger a { text-transform: none; }
 	position: relative;
 	z-index: 9;
 	overflow: hidden;
+	height: 60%;
 }
 
 .plan-price {
@@ -4994,6 +4996,7 @@ body .style-2 .trigger a { text-transform: none; }
 	padding: 35px 30px;
 	background: #fff;
 	border-radius: 4px;
+	height: 100%;
 }
 
 .plan-features ul {
@@ -5005,8 +5008,11 @@ body .style-2 .trigger a { text-transform: none; }
 	padding: 3px 0;
 }
 
-.plan-features a.button {
-	margin-top: 20px;
+.plan-features input {
+	/*margin-top: 20px;*/
+	position: absolute;
+	top: 80%;
+	left: 35%;
 }
 
 
@@ -6948,7 +6954,7 @@ body .notification strong { border: none; }
 .listing-item-container {
 /*	background: linear-gradient(to top, #f4f4f4 0%, #f9f9f9 10%); */
 	background-color: #f6f6f6;
-	display: block;
+	/*display: block;*/
 	height: 100%;
 	width: 100%;
 	border-radius: 4px;
@@ -6983,6 +6989,7 @@ section.fullwidth .listing-item-container.list-layout,
 	height: 265px;
 	z-index: 100;
 	cursor: pointer;
+	margin-bottom: 20px;
 }
 
 .listing-item img {
@@ -7646,7 +7653,7 @@ header.fullwidth.dashboard .container { padding-left: 285px; }
 	height: 240px;
  }
 #business_img{
-	width: 240px;
+	width: 350px;
 	height: 240px;
 }
 #myRatingLists li{
@@ -8386,7 +8393,7 @@ a.close-list-item {
 ------------------------------------- */
 .edit-profile-photo img {
 	border-radius: 4px;
-	max-width: 240px;
+	max-width: 400px;
 	width: 100%;
 }
 

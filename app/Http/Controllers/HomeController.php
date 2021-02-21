@@ -1,10 +1,10 @@
 <?php
 
-namespace myapp\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-//    public function __construct()
-//    {
-//        $this->middleware('auth');
-//    }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -25,67 +25,39 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $businesses = DB::table('business')->get();
-//        var_dump($businesses[0]->b_category);
-        return view('welcome',array('businesses'=>$businesses));
+        var_dump(Auth::user()->userrole);
+        if(Auth::user()->userrole == 'admin'){
+            var_dump('Not Found This Pages');
+            Auth::logout();
+            Session::flush();
+            return redirect('/');
+        }elseif (Auth::user()->userrole == 'customer'){
+//            return redirect('/customer');
+            var_dump('Not Found This Pages');
+            Auth::logout();
+            Session::flush();
+            return redirect('/');
+        }elseif (Auth::user()->userrole == 'business'){
+            return redirect('/business');
+        }else{
+            return 'Not Found This Pages';
+        }
+//        return view('home');
     }
-//    public function getBusiness($id){
-//        $business = DB::table('business')->where('b_id', $id)->first();
-//        $ratings = DB::table('review')->where('r_bid', $id)->get();
-//        $address = intval($business->postcode);
-//        $json = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false");
-//        $json = json_decode($json);
-//        var_dump($json);
-//        $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-//        $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
-//        $mapText = substr($business->b_title,0,2);
-//        $openhours = explode(',', $business->openinghours);
-//        $openingResult = [];
-//        foreach ($openhours as $openhour){
-//            $catch_open = explode('=', $openhour);
-//            array_push($openingResult, $catch_open[1]);
-//        }
-//        $countReview = 0;
-//        $avgReview = 0.0;
-//        $sum = 0;
-//        foreach($ratings as $rating){
-//            $countReview ++;
-//            $sum = $sum + $rating->r_rating;
-//        }
-//        if($countReview != 0){
-//            $avgReview = round(floatval($sum / $countReview),1);
-//        }
-////        return view('front/businessInfo',array('business'=>$business, 'lat'=>$lat, 'long'=>$long, 'mapText'=>$mapText, 'ratings'=>$ratings, 'openinghours'=>$openingResult,
-////            'countReview'=>$countReview, 'avgReview'=>$avgReview));
-//    }
-    public function getBusiness($id){
-        $business = DB::table('business')->where('b_id', $id)->first();
-        $ratings = DB::table('review')->where('r_bid', $id)->get();
-        $address = intval($business->postcode);
-        $url = "http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false";
-        $json1 = file_get_contents($url);
-        $json = json_decode($json1);
-//        var_dump($json);
-        $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-        $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
-        $mapText = substr($business->b_title,0,2);
-        $openhours = explode(',', $business->openinghours);
-        $openingResult = [];
-        foreach ($openhours as $openhour){
-            $catch_open = explode('=', $openhour);
-            array_push($openingResult, $catch_open[1]);
-        }
-        $countReview = 0;
-        $avgReview = 0.0;
-        $sum = 0;
-        foreach($ratings as $rating){
-            $countReview ++;
-            $sum = $sum + $rating->r_rating;
-        }
-        if($countReview != 0){
-            $avgReview = round(floatval($sum / $countReview),1);
-        }
-        return view('front/businessInfo',array('business'=>$business, 'lat'=>$lat, 'long'=>$long, 'mapText'=>$mapText, 'ratings'=>$ratings, 'openinghours'=>$openingResult,
-            'countReview'=>$countReview, 'avgReview'=>$avgReview));
+    public function adminlogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect('/admin-area');
     }
+    public function businesslogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect('/');
+    }
+    public function customerlogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect('/');
+    }
+
 }

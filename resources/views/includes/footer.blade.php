@@ -23,8 +23,8 @@
             <h4>Contact Us</h4>
             <div class="text-widget">
                 <span>Tradelinx Australia Pty Ltd</span> <br>
-                <span>Postal Address NSW 2000</span><br>
-                <span> <a href="#">info@tradelinx.com.au</a> </span><br>
+                <span>3123 Wetherill Park 2164 NSW</span><br>
+                <span> <a href="#">info@edenlinx.com</a> </span><br>
             </div>
 
             <ul class="social-icons margin-top-20">
@@ -48,7 +48,7 @@
 
         <div class="col-md-12">
             <div class="copyrights">Copyright 2017. All rights reserved.
-            </br>Created with Heart by <span class="redtext">emoceanstudios.com.au</span>
+            </br>Created by <span class="redtext">emoceanstudios.com.au</span>
             </div>
         </div>
     </div>

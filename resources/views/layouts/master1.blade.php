@@ -7,7 +7,7 @@
 <div id="wrapper">
     @include('includes.dheader')
     <div id="dashboard">
-        @include('includes.dnav')
+        @include('includes.bnav')
         <div class="dashboard-content">
             <div id="titlebar">
                 <div class="row">

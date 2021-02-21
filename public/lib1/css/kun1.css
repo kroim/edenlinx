@@ -1,0 +1,57 @@
+.business-header-image{
+    padding-top: 1%;
+    height: 60%;
+    text-align: center;
+}
+.business-header-image img{
+    height: 100%;
+    width: 100%;
+}
+#business-sign-in-dialog{
+    background: #fff;
+    padding: 40px;
+    padding-top: 0;
+    text-align: left;
+    max-width: 610px;
+    margin: 40px auto;
+    position: relative;
+    box-sizing:border-box;
+    border-radius: 4px;
+}
+#business-sign-in-dialog .mfp-close {
+    top: 24px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+#business-sign-in-dialog {
+    max-width: 500px;
+}
+#business-sign-in-dialog .mfp-close{
+    color: #666;
+    background-color: #e4e4e4;
+    border-radius: 50%;
+    top: 28px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+#business-sign-in-dialog .mfp-close:hover{
+    color: #fff;
+    transform: rotate(0);
+    background-color: #f92447;
+}
+
+#business-sign-in-dialog .mfp-close::after,
+#business-sign-in-dialog .mfp-close::before{
+    top: 4px;
+    height: 9px;
+    font-size: 21px;
+    transition: 0s;
+}
+
+
+#business-sign-in-dialog span.line,
+#small-dialog span.line {padding-top: 0;}

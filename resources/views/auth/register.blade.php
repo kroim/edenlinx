@@ -39,6 +39,10 @@
                             </div>
                         </div>
 
+                        <input type="hidden" class="form-control" name="userrole" value="admin">
+                        <input type="hidden" class="form-control" name="companyname" value="">
+                        <input type="hidden" class="form-control" name="package" value="">
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
