@@ -13,7 +13,7 @@
 
 <!-- Maps -->
 {{--<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiHrjQVDBSe7nK4dDeM5Od-LZMlwPVYwM&callback=loadMap"></script>--}}
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiHrjQVDBSe7nK4dDeM5Od-LZMlwPVYwM&sensor=false&amp;language=en"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiHrjQVDBSe7nK4dDeM5Od-LZMlwPVYwM"></script>
 <script type="text/javascript" src="{{asset('lib1/scripts/infobox.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib1/scripts/markerclusterer.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib1/scripts/maps.js')}}"></script>
