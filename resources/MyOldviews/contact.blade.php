@@ -1,11 +1,11 @@
 @extends('layouts.master')
 @section('title', 'Contact')
 @section('content')
-    {{--<div class="container">--}}
+    <!--<div class="container">-->
         <div class="main-search-container margin-bottom-60" id="contact-main-image" data-background-image="{{asset('images/contactback.png')}}">
-        </div>
-    {{--</div>--}}
-
+    </div>
+    <!--</div>-->
+    
     <div class="container">
 
         <div class="row">
@@ -20,7 +20,7 @@
                     <p>If you have any questions at all, please get in touch, we are here to help and it's best you know what all your options are for your situation and roofing size.</p>
 
                     <ul class="contact-details">
-                        <li><i class="im im-icon-phone contact-icon"></i><a><p>  0424 646 929 </p></a></li>
+                        <li><i class="im im-icon-phone contact-icon"></i><a><p> 0424 646 929 </p></a></li>
                         <li><i class="im im-icon-email contact-icon"></i><a><p> info@edenlinx.com </p></a></li>
                     </ul>
                 </div>

@@ -57,97 +57,97 @@
 
     <!-- Content
     ================================================== -->
-    <!--<div class="container">-->
-    <!--    <div class="row">-->
+    <div class="container">
+        <div class="row">
 
-    <!--        <div class="col-md-12">-->
-    <!--            <h3 class="headline centered margin-top-75">-->
-    <!--                Todays Popular Categories-->
-    <!--                <span>A quick reference to what others have been looking into today... see anything that tickles your fancy?</span>-->
-    <!--            </h3>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!--<div class="container">-->
-    <!--    <div class="row">-->
-    <!--        <div class="col-md-12">-->
-    <!--            <div class="categories-boxes-container margin-top-5 margin-bottom-30 categories1">-->
-
-                    <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Hamburger"></i>-->
-    <!--                    <h4>Eat & Drink</h4>-->
-    <!--                </a>-->
+            <div class="col-md-12">
+                <h3 class="headline centered margin-top-75">
+                    Todays Popular Categories
+                    <span>A quick reference to what others have been looking into today... see anything that tickles your fancy?</span>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="categories-boxes-container margin-top-5 margin-bottom-30 categories1">
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im  im-icon-Sleeping"></i>-->
-    <!--                    <h4>Hotels</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Hamburger"></i>
+                        <h4>Eat & Drink</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Shopping-Bag"></i>-->
-    <!--                    <h4>Shops</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im  im-icon-Sleeping"></i>
+                        <h4>Hotels</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Cocktail"></i>-->
-    <!--                    <h4>Nightlife</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Shopping-Bag"></i>
+                        <h4>Shops</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a  class="category-small-box">-->
-    <!--                    <i class="im im-icon-Electric-Guitar"></i>-->
-    <!--                    <h4>Events</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Cocktail"></i>
+                        <h4>Nightlife</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a  class="category-small-box">-->
-    <!--                    <i class="im im-icon-Dumbbell"></i>-->
-    <!--                    <h4>Fitness</h4>-->
-    <!--                </a>-->
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Electric-Guitar"></i>
+                        <h4>Events</h4>
+                    </a>
 
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-        <!--<div class="col-md-12 centered-content">-->
-        <!--    <a href="{{url('category')}}" class="button border margin-top-10">View All</a>-->
-        <!--</div>-->
+                    <!-- Box -->
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Dumbbell"></i>
+                        <h4>Fitness</h4>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 centered-content">
+            <a href="{{url('category')}}" class="button border margin-top-10">View All</a>
+        </div>
     </div>
     <!-- Fullwidth Section -->
-    <!--<section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">-->
+    <section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
 
-    <!--    <div class="container">-->
-    <!--        <div class="row">-->
+        <div class="container">
+            <div class="row">
 
-    <!--            <div class="col-md-12">-->
-    <!--                <h3 class="headline centered margin-bottom-45">-->
-    <!--                    Popular Businesses-->
-    <!--                    <span>These are some of our most loved businesses, is there something they can help you with?</span>-->
-    <!--                </h3>-->
-    <!--            </div>-->
+                <div class="col-md-12">
+                    <h3 class="headline centered margin-bottom-45">
+                        Popular Business
+                        <span>These are some of our most loved businesses, is there something they can help you with?</span>
+                    </h3>
+                </div>
 
-    <!--            <div class="col-md-12">-->
-    <!--                <div class="simple-slick-carousel dots-nav">-->
-    <!--                    @foreach($businesses as $business)-->
-    <!--                        <div class="carousel-item">-->
-    <!--                            <a href="{{url('business/info/'.$business->b_id)}}" class="listing-item-container">-->
-    <!--                                <div class="listing-item">-->
-    <!--                                    <img src="{{$business->b_image}}" alt="">-->
-    <!--                                </div>-->
-    <!--                                <h3>{{$business->b_title}}</h3>-->
-    <!--                                <span>{{$business->b_category}}</span>-->
-    <!--                            </a>-->
-    <!--                        </div>-->
-    <!--                    @endforeach-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+                <div class="col-md-12">
+                    <div class="simple-slick-carousel dots-nav">
+                        @foreach($businesses as $business)
+                            <div class="carousel-item">
+                                <a href="{{url('business/info/'.$business->b_id)}}" class="listing-item-container">
+                                    <div class="listing-item">
+                                        <img src="{{$business->b_image}}" alt="">
+                                    </div>
+                                    <h3>{{$business->b_title}}</h3>
+                                    <span>{{$business->b_category}}</span>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!--</section>-->
+    </section>
     <!-- Fullwidth Section / End -->
 
 
@@ -168,7 +168,7 @@
             <div class="col-md-4">
                 <div class="icon-box-2 with-line">
                     {{--<i class="im im-icon-Map2"></i>--}}
-                    <a href="#" class="button border margin-top-10">1</a>
+                    <a class="button border margin-top-10">1</a>
                     <h3>Search what you need</h3>
                     <p>Something around the house which needs fixing, simply type in what it is you need.</p>
                 </div>
@@ -178,7 +178,7 @@
             <div class="col-md-4">
                 <div class="icon-box-2 with-line">
                     {{--<i class="im im-icon-Mail-withAtSign"></i>--}}
-                    <a href="#" class="button border margin-top-10">2</a>
+                    <a class="button border margin-top-10">2</a>
                     <h3>Select a Business to help you</h3>
                     <p>Choose the business which suits your requirements the best.</p>
                 </div>
@@ -188,7 +188,7 @@
             <div class="col-md-4">
                 <div class="icon-box-2">
                     {{--<i class="im im-icon-Checked-User"></i>--}}
-                    <a href="#" class="button border margin-top-10">3</a>
+                    <a class="button border margin-top-10">3</a>
                     <h3>Book your preferred Date and Time</h3>
                     <p>Let the business know what day of the week and time of the day suits best.</p>
                 </div>

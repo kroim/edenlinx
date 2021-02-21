@@ -13,11 +13,13 @@
                 <li><a href="{{url('/')}}"><p class="redtext"> Home</p></a></li>
                 <li><a href="{{url('category')}}"><p class="redtext"> Categories</p></a></li>
                 <li><a href="{{url('/contact')}}"><p class="redtext"> Contact</p></a></li>
-                @if(Auth::check())
-                    <li><a href="{{url('business')}}"><p class="redtext"> Add Your Business</p></a></li>
-                @else
-                    <li><a href="#business-sign-in-dialog" class="sign-in popup-with-zoom-anim"><p class="redtext"> Add Your Business</p></a></li>
-                @endif
+                <li>
+                    @if(Auth::check())
+                        <a href="{{url('business')}}"><p class="redtext"> Add Your Business</p></a>
+                    @else
+                        <a href="#business-sign-in-dialog" class="sign-in popup-with-zoom-anim"><p class="redtext"> Add Your Business</p></a>
+                    @endif
+                </li>
                 <li>
                     @if(Auth::check())
                         @if(Auth::user()->userrole == 'customer')

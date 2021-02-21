@@ -21,51 +21,19 @@ class BusinessController extends Controller
         $package = DB::table('users')->where('id',Auth::id())->value('package');
         $res1 = DB::table('business')->where('userid',Auth::id())->first();
         $b_check = 'false';
-        if($res1->postcode == null){
-            $b_check = 'true';
-        }
         if($res1 == null){
             $b_check = 'true';
-            DB::table('business')->insert(['userid'=>Auth::id(), 'b_title'=>'Default Business', 'b_category'=>'Default Category', 'b_keyword'=>'Default',
-                'b_image'=>'https://placehold.it/468x265?text=IMAGE', 'b_headerimage'=>'https://placehold.it/1200x400?text=IMAGE']);
-            $res1 = DB::table('business')->where('userid',Auth::id())->first();
-        }
-        return view('businesspage/business', array('title' => 'Business Listing', 'package'=>$package, 'b_res'=>$res1, 'b_check'=>$b_check));
-    }
-    public function savebusiness(Request $request){
-        $destinationPath = 'uploads/business';
-        $res = DB::table('business')->where('userid',Auth::id())->first();
-        if($request->file('business-main-img') != null){
-            $file_main = $request->file('business-main-img');
-            $extention_main = $file_main->getClientOriginalExtension();
-            $filename_main = Auth::user()->email.'_main.'.$extention_main;
-            //$file_main->move($destinationPath, $filename_main);
-            $filepath_main = $destinationPath.'/'.$filename_main;
-            $imgdata = $request['imgData'];
-            $imgdata = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imgdata));
-            file_put_contents($filepath_main, $imgdata);
-        }elseif($res->b_image != null){
-            $filepath_main = $res->b_image;
-        }else{
-            $filepath_main = "https://placehold.it/468x265?text=IMAGE";
-        }
-        if($request->file('business-main-img') != null){
-            $file_listing = $request->file('business-listing-img');
-            $extention_listing = $file_listing->getClientOriginalExtension();
-            $filename_listing = Auth::user()->email.'_listing.'.$extention_listing;
-//            $file_listing->move($destinationPath, $filename_listing);
-            $filepath_listing = $destinationPath.'/'.$filename_listing;
-            $imgdata1 = $request['imgData1'];
-            $imgdata1 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imgdata1));
-            file_put_contents($filepath_listing, $imgdata1);
-        }elseif($res->b_headerimage != null){
-            $filepath_listing = $res->b_headerimage;
-        }else{
-            $filepath_listing = "https://placehold.it/1200x400?text=IMAGE";
         }
 
-//        var_dump($filepath_listing);
-//        var_dump($filepath_main);
+        return view('businesspage/business', array('title' => 'Business Listing', 'package'=>$package, 'b_check'=>$b_check));
+    }
+    public function savebusiness(Request $request){
+        $file = $request->file('business_image');
+        $extention = $file->getClientOriginalExtension();
+        $filename = Auth::user()->email.'.'.$extention;
+        $destinationPath = 'uploads/business';
+        $file->move($destinationPath, $filename);
+        $filepath = $destinationPath.'/'.$filename;
 //        echo $filepath;
 //        echo '</br>';
 //        echo $request['business_category'];
@@ -91,22 +59,16 @@ class BusinessController extends Controller
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($address)."&sensor=false";
         $json1 = file_get_contents($url);
         $json = json_decode($json1);
-
 //        var_dump($json);
         $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
         $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
-        DB::update('update business set b_title = ?, b_category = ?, b_keyword = ?, state = ?, city = ?, address = ?, postcode = ?,
-            b_image = ?, b_headerimage = ?, b_description = ?, b_phone = ?, b_website = ?, b_email = ?, openinghours = ?, latitude = ?, longitude = ?, bupdate = ? WHERE userid = ?', [$request['business_title'],
-            $request['business_category'], $request['business_keywords'], $request['business_state'], $request['business_city'], $request['business_address'], $request['business_zipcode'],
-            $filepath_main, $filepath_listing, $request['business_description'], $request['business_phone'], $request['business_website'], $request['business_email'], $openinghours,
-            $lat, $long, 'false', Auth::id()]);
 //        var_dump($lat, $long);
 //        var_dump(explode(',', $openinghours));
-//        DB::table('business')->insert(['userid'=>Auth::id(),'b_title'=>$request['business_title'],'b_category'=>$request['business_category'],
-//            'b_keyword'=>$request['business_keywords'],'state'=>$request['business_state'],'city'=>$request['business_city'],'address'=>$request['business_address'],
-//            'postcode'=>$request['business_zipcode'],'b_image'=>$filepath,'b_description'=>$request['business_description'],
-//            'b_phone'=>$request['business_phone'],'b_website'=>$request['business_website'],'b_email'=>$request['business_email'],'openinghours'=>$openinghours,
-//            'latitude'=>$lat,'longitude'=>$long,'update'=>'false']);
+        DB::table('business')->insert(['userid'=>Auth::id(),'b_title'=>$request['business_title'],'b_category'=>$request['business_category'],
+            'b_keyword'=>$request['business_keywords'],'state'=>$request['business_state'],'city'=>$request['business_city'],'address'=>$request['business_address'],
+            'postcode'=>$request['business_zipcode'],'b_image'=>$filepath,'b_description'=>$request['business_description'],
+            'b_phone'=>$request['business_phone'],'b_website'=>$request['business_website'],'b_email'=>$request['business_email'],'openinghours'=>$openinghours,
+            'latitude'=>$lat,'longitude'=>$long,'update'=>'false']);
         return redirect('business');
     }
     public function profile(){

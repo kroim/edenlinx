@@ -10,7 +10,6 @@
             <div class="dashboard-list-box margin-top-0">
                 <h4 class="gray">Profile Details</h4>
                 <div class="dashboard-list-box-static">
-                    <p class="blue-text">Image Size : 240 x 240</p>
                     <form action="{{url('business/saveprofile')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                     <!-- Avatar -->

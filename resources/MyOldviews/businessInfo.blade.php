@@ -189,7 +189,7 @@
                     {{csrf_field()}}
                     <textarea name="booking-message" cols="40" rows="5" required></textarea>
                     <ul class="listing-details-sidebar">
-                        <li><i class="sl sl-icon-phone"></i>  0424 646 929</li>
+                        <li><i class="sl sl-icon-phone"></i> 0424 646 929</li>
                         <li><i class="sl sl-icon-globe"></i> <a href="#">info@edenlinx.com</a></li>
                         <li><i class="fa fa-envelope-o"></i> <a href="#">info@edenlinx.com</a></li>
                     </ul>

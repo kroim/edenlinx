@@ -2,21 +2,12 @@
 @section('title', $title)
 @section('menuitem', $title)
 @section('dashboardcontent')
-<style>
-    .btn-is-disabled {
-        pointer-events: none; /* Disables the button completely. Better than just cursor: default; */
-    }
-</style>
+
     <div class="row">
         <div class="col-lg-12">
-            @if($b_check == 'false')
-                        
-                @else
-                    <h2 class="red-text">You have to complete your business details.</h2>
-                @endif
 
             <div id="add-listing">
-            <form action="{{url('business/savebusiness')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('business/savebusiness')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <!-- Section -->
                 <div class="add-listing-section">
@@ -30,7 +21,7 @@
                     <div class="row with-forms">
                         <div class="col-md-12">
                             <h5>Listing Title <i class="tip" data-tip-content="Name of your business"></i></h5>
-                            <input class="search-field" type="text" name="business_title" value="{{$b_res->b_title}}" required/>
+                            <input class="search-field" type="text" name="business_title" value=""/>
                         </div>
                     </div>
 
@@ -40,7 +31,7 @@
                         <!-- Status -->
                         <div class="col-md-6">
                             <h5>Category</h5>
-                            <select class="chosen-select-no-single" name="business_category" required>
+                            <select class="chosen-select-no-single" name="business_category">
                                 <option label="blank">Select Category</option>
                                 <option>Eat & Drink</option>
                                 <option>Shops</option>
@@ -54,7 +45,7 @@
                         <!-- Type -->
                         <div class="col-md-6">
                             <h5>Keywords <i class="tip" data-tip-content="Maximum of 15 keywords related with your business"></i></h5>
-                            <input type="text" placeholder="Keywords should be separated by commas" name="business_keywords" value="{{$b_res->b_keyword}}" required>
+                            <input type="text" placeholder="Keywords should be separated by commas" name="business_keywords">
                         </div>
 
                     </div>
@@ -79,25 +70,34 @@
                             <!-- City -->
                             <div class="col-md-6">
                                 <h5>City</h5>
-                                <input type="text" name="business_city" value="{{$b_res->city}}" required>
+                                <select class="chosen-select-no-single" name="business_city">
+                                    <option label="blank">Select City</option>
+                                    <option>New York</option>
+                                    <option>Los Angeles</option>
+                                    <option>Chicago</option>
+                                    <option>Houston</option>
+                                    <option>Phoenix</option>
+                                    <option>San Diego</option>
+                                    <option>Austin</option>
+                                </select>
                             </div>
 
                             <!-- Address -->
                             <div class="col-md-6">
                                 <h5>Address</h5>
-                                <input type="text" name="business_address" value="{{$b_res->address}}" required>
+                                <input type="text" placeholder="e.g. 964 School Street" name="business_address">
                             </div>
 
                             <!-- City -->
                             <div class="col-md-6">
                                 <h5>State</h5>
-                                <input type="text" name="business_state" value="{{$b_res->state}}" required>
+                                <input type="text" name="business_state">
                             </div>
 
                             <!-- Zip-Code -->
                             <div class="col-md-6">
-                                <h5>PostCode</h5>
-                                <input type="text" name="business_zipcode" value="{{$b_res->postcode}}" required>
+                                <h5>Zip-Code</h5>
+                                <input type="text" name="business_zipcode">
                             </div>
 
                         </div>
@@ -106,95 +106,33 @@
                     </div>
                 </div>
                 <!-- Section / End -->
-                    <!-- Section -->
-                    <div class="add-listing-section margin-top-45">
 
-                        <!-- Headline -->
-                        <div class="add-listing-headline">
-                            <h3><i class="sl sl-icon-picture"></i> Business Main Image</h3>
-                        </div>
-                        <div>
-                            <a href="#business_main_img_dialog" class="popup-with-zoom-anim">
-                                <span><i class="fa fa-upload"></i> Upload Photo</span><span class="blue-text"> : Image Size : 468 x 265</span><br>
-                                <img id="business_main_img_show" src="{{$b_res->b_image}}">
-                                <input id="imageDataUploading" name="imgData" value="" style="display: none;">
-                            </a>
-                        </div>
-                        <div id="business_main_img_dialog" class="zoom-anim-dialog mfp-hide">
-                            <div class="small-dialog-header">
-                                <h3>Need Fixed Image</h3>
-                            </div>
-                            <div class="form-group">
-                                <div id="mainupload"
-                                     style="background:#a0a0a0;width:312px;padding:1px;height:176px;margin-top:10px;border:1px solid darkgray;"></div>
-                            </div>
-                            <div class="form-group" style="padding-top:10px;">
-                                <button onclick="$('#business-main-img').click();">select file</button>
-                                <input type="file" id="business-main-img" name="business-main-img" style="display:none;"/>
-                                <br><br>
 
-                            </div>
+                <!-- Section -->
+                <div class="add-listing-section margin-top-45">
 
-                            <div class="row form-inline text-center">
-                                <div class="form-group">
-                                    <div id="main-upload1"></div>
+                    <!-- Headline -->
+                    <div class="add-listing-headline">
+                        <h3><i class="sl sl-icon-picture"></i> Business Listing Header Image</h3>
+                    </div>
+
+                    <!-- Dropzone -->
+                    <div class="edit-profile-photo">
+                        {{--<img src="images/back1.png" alt="" id="profile_img">--}}
+                        <img alt="" id="business_img">
+
+                            <div class="change-photo-btn">
+                                <div class="photoUpload">
+                                    <span><i class="fa fa-upload"></i> Upload Photo</span>
+                                    <input accept="image/*" type="file" class="upload" name="business_image" onchange="load_business(event)" required/>
                                 </div>
                             </div>
-                            <button class="btn btn-primary form-control" id="upload-complete-main">upload</button>
-                        </div>
-                        {{--<!-- Dropzone -->--}}
-                        {{--<div class="edit-profile-photo">--}}
-                            {{--<img src="images/back1.png" alt="" id="profile_img">--}}
-                            {{--<img alt="" id="business_img">--}}
-
-                            {{--<div class="change-photo-btn">--}}
-                                {{--<div class="photoUpload">--}}
-                                    {{--<span><i class="fa fa-upload"></i> Upload Photo</span>--}}
-                                    {{--<input accept="image/*" type="file" class="upload" name="business_image" onchange="load_business(event)" required/>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-
                     </div>
-                    <!-- Section / End -->
-                    <!-- Section -->
-                    <div class="add-listing-section margin-top-45">
-                        <!-- Headline -->
-                        <div class="add-listing-headline">
-                            <h3><i class="sl sl-icon-picture"></i> Business Listing Header Image</h3>
-                        </div>
 
-                        <div>
-                            <a href="#business_listing_img_dialog" class="popup-with-zoom-anim">
-                                <span><i class="fa fa-upload"></i> Upload Photo</span><span class="blue-text"> : Image Size : 1200 x 400</span><br>
-                                <img id="business_listing_img_show" src="{{$b_res->b_headerimage}}">
-                                <input id="imageDataUploading1" name="imgData1" value="" style="display: none;">
-                                </a>
-                        </div>
-                    </div>
-                    <!-- Section / End -->
-                    <div id="business_listing_img_dialog" class="zoom-anim-dialog mfp-hide">
-                        <div class="small-dialog-header">
-                            <h3>Need Fixed Image</h3>
-                        </div>
-                        <div class="form-group">
-                            <div id="listingupload"
-                                 style="background:#a0a0a0;width:400px;padding:1px;height:100px;margin-top:10px;border:1px solid darkgray;"></div>
-                        </div>
-                        <div class="form-group" style="padding-top:10px;">
-                            <button onclick="$('#business-listing-img').click();">select file</button>
-                            <input type="file" id="business-listing-img" name="business-listing-img" style="display:none;"/>
-                            <br><br>
+                </div>
+                <!-- Section / End -->
 
-                        </div>
 
-                        <div class="row form-inline text-center">
-                            <div class="form-group">
-                                <div id="listing-upload1"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary form-control" id="listing-upload-complete">upload</button>
-                    </div>
                 <!-- Section -->
                 <div class="add-listing-section margin-top-45">
 
@@ -206,7 +144,7 @@
                     <!-- Description -->
                     <div class="form">
                         <h5>Description</h5>
-                        <textarea class="WYSIWYG" name="business_description" cols="40" rows="3" id="summary" spellcheck="true">{{$b_res->b_description}}</textarea>
+                        <textarea class="WYSIWYG" name="business_description" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
                     </div>
 
                     <!-- Row -->
@@ -215,19 +153,19 @@
                         <!-- Phone -->
                         <div class="col-md-4">
                             <h5>Phone <span>(optional)</span></h5>
-                            <input type="text" name="business_phone" value="{{$b_res->b_phone}}">
+                            <input type="text" name="business_phone">
                         </div>
 
                         <!-- Website -->
                         <div class="col-md-4">
                             <h5>Website <span>(optional)</span></h5>
-                            <input type="text" name="business_website" value="{{$b_res->b_website}}">
+                            <input type="text" name="business_website">
                         </div>
 
                         <!-- Email Address -->
                         <div class="col-md-4">
                             <h5>E-mail <span>(optional)</span></h5>
-                            <input type="text" name="business_email" value="{{$b_res->b_email}}">
+                            <input type="text" name="business_email">
                         </div>
 
                     </div>
@@ -478,7 +416,7 @@
                 </div>
                 <!-- Section / End -->
                 @if($b_check == 'false')
-                        <button type="submit" class="button preview" onclick="submit_business">Save Changes</button>
+                    <h1 class="redtext">You already created your business</h1>
                 @else
                     <button type="submit" class="button preview" onclick="submit_business">Save</button>
                 @endif
@@ -491,13 +429,5 @@
         </div>
 
     </div>
-<script>
-    $(function(){
-        console.log("{{$b_check}}");
-        @if($b_check != 'false')
-            $('.dashboard-nav').find('a').addClass('btn-is-disabled');
-        @endif
 
-    });
-</script>
 @endsection

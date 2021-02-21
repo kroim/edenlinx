@@ -11,10 +11,6 @@
 <script type="text/javascript" src="{{asset('lib1/scripts/tooltips.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib1/scripts/custom.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('lib1/scripts/dropzone.js')}}"></script>
-<script type="text/javascript" src="{{asset('lib1/scripts/croppie/croppie.js')}}"></script>
-<script type="text/javascript" src="{{asset('lib1/scripts/croppie/upload_img.js')}}"></script>
-
 <!-- Maps -->
 {{--<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiHrjQVDBSe7nK4dDeM5Od-LZMlwPVYwM&callback=loadMap"></script>--}}
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiHrjQVDBSe7nK4dDeM5Od-LZMlwPVYwM"></script>
