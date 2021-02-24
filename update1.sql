@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100126
 File Encoding         : 65001
 
-Date: 2017-09-28 02:10:19
+Date: 2017-10-03 14:21:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -60,15 +60,12 @@ CREATE TABLE `business` (
   `updatestart` date DEFAULT NULL,
   `updateend` date DEFAULT NULL,
   PRIMARY KEY (`b_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of business
 -- ----------------------------
-INSERT INTO `business` VALUES ('5', '9', 'Business1', 'Select Category', 'Business1', 'Satedong', 'Los Angeles', 'kalmacco', '116400', 'uploads/business/business1@hotmail.com.png', 'https://placehold.it/1200x400?text=IMAGE', 'This is Business1', '19845546461', 'website@outlook.com', 'myemail@oulook.com', 'o_mon=, c_mon=, o_tue=, c_tue=, o_wed=, c_wed=, o_thu=, c_thu=, o_fri=, c_fri=, o_sat=, c_sat=, o_sun=, c_sun=', null, '39.6807', '122.967', 'false', null, null);
-INSERT INTO `business` VALUES ('6', '10', 'Business2', 'Hotels', 'Business2', 'Kal Kel', 'New York', 'address1', '198752', 'uploads/business/business2@hotmail.com.png', null, 'This is business2', '19845546461', 'com.com', 'chong@chong.com', 'o_mon=1 AM, c_mon=2 AM, o_tue=1 AM, c_tue=3 AM, o_wed=2 AM, c_wed=7 AM, o_thu=3 AM, c_thu=9 AM, o_fri=4 AM, c_fri=1 PM, o_sat=9 AM, c_sat=6 PM, o_sun=2 PM, c_sun=10 PM', null, '1.30354', '103.86', 'false', null, null);
-INSERT INTO `business` VALUES ('7', '11', 'Business3', 'Select Category', 'Business3', 'Australia', 'Australia city', 'Address3', '116400', 'uploads/business/business3@hotmail.com_main.png', 'uploads/business/business3@hotmail.com_listing.png', 'Business Description 3', '1549886544', 'com.com', 'myemail@oulook.com', 'o_mon=, c_mon=, o_tue=, c_tue=, o_wed=, c_wed=, o_thu=, c_thu=, o_fri=, c_fri=, o_sat=, c_sat=, o_sun=, c_sun=', null, '39.6807', '122.967', 'false', null, null);
-INSERT INTO `business` VALUES ('8', '12', 'Default Business', 'Default Category', 'Default', null, null, null, null, 'https://placehold.it/468x265?text=IMAGE', 'https://placehold.it/1200x400?text=IMAGE', null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `business` VALUES ('12', '16', 'First Test Tille', 'Eat & Drink', 'Designer', 'NSW', 'Penrith', '233 high street', '2750', 'uploads/business/first@hotmail.com_main.png', 'uploads/business/first@hotmail.com_listing.png', 'aaa', '9845546461', 'com.com', 'myemail@oulook.com', 'o_mon=2 AM, c_mon=3 AM, o_tue=3 AM, c_tue=3 AM, o_wed=4 AM, c_wed=5 AM, o_thu=8 AM, c_thu=9 AM, o_fri=11 AM, c_fri=3 PM, o_sat=10 AM, c_sat=3 PM, o_sun=2 PM, c_sun=3 PM', null, '-33.755', '150.705', 'false', null, null);
 
 -- ----------------------------
 -- Table structure for message
@@ -16959,12 +16956,9 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_useremail_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('9', 'business1', 'business1@hotmail.com', '$2y$10$wF4CxLPiV4GJgLvpGMk5oejcomwwq8LWaaj6OTgOk226yTMQW6w.S', 'business', '15464511', 'uploads/profile/business1@hotmail.com.png', 'free', 'business1', null, '7yWpy9UFwOE2KDXflU2INFkTjpVnSZ1pIkiQ0ZKbh4e9bo0C1vBR2NJcHbit', '2017-09-23 03:56:56', '2017-09-23 03:56:56');
-INSERT INTO `users` VALUES ('10', 'business2', 'business2@hotmail.com', '$2y$10$y4rfF0cfL1d./kHkGXNWnemDS.0xWNAr6TF4HcJTxGcMxDV2nPQVW', 'business', '2222222222', 'uploads/profile/business2@hotmail.com.png', 'free', 'business2', null, null, '2017-09-23 07:04:00', '2017-09-23 07:04:00');
-INSERT INTO `users` VALUES ('11', 'business3', 'business3@hotmail.com', '$2y$10$Ou6G0gk46bUud8GUuhI9quVHS9FKiK8MNcn4fEYFLscG1XQl0NRFC', 'business', null, null, 'free', 'business3', null, null, '2017-09-26 05:36:08', '2017-09-26 05:36:08');
-INSERT INTO `users` VALUES ('12', 'btest1', 'btest1@hotmail.com', '$2y$10$QER3a9LN2H3pldet6EG8OedCUI8pEUY.ivlbspCvx/jZBPjlVLAZu', 'business', null, null, 'free', 'BTest', null, 'EQhP9gkPi8tCA2YVd8O5n798oO0G6I70xD7qEn70gtqIdYGDqXre1XMeUg3i', '2017-09-27 03:00:36', '2017-09-27 03:00:36');
+INSERT INTO `users` VALUES ('16', 'first', 'myemail@oulook.com', '$2y$10$EvrPNrPaAClHWLcPrhmaiuETcM.5nigiyNdcpezq.fXjSE539sRye', 'business', '9845546461', 'images/boy-256.png', 'free', 'first', null, null, '2017-10-03 01:35:45', '2017-10-03 01:35:45');
