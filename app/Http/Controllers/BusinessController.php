@@ -21,7 +21,7 @@ class BusinessController extends Controller
         $package = DB::table('users')->where('id',Auth::id())->value('package');
         $res1 = DB::table('business')->where('userid',Auth::id())->first();
         $b_check = 'false';
-        if($res1->postcode == null){
+        if(!isset($res1->postcode)){
             $b_check = 'true';
         }
         if($res1 == null){
@@ -49,7 +49,7 @@ class BusinessController extends Controller
         }else{
             $filepath_main = "https://placehold.it/468x265?text=IMAGE";
         }
-        if($request->file('business-main-img') != null){
+        if($request->file('business-listing-img') != null){
             $file_listing = $request->file('business-listing-img');
             $extention_listing = $file_listing->getClientOriginalExtension();
             $filename_listing = Auth::user()->email.'_listing.'.$extention_listing;
@@ -61,7 +61,7 @@ class BusinessController extends Controller
         }elseif($res->b_headerimage != null){
             $filepath_listing = $res->b_headerimage;
         }else{
-            $filepath_listing = "https://placehold.it/1200x400?text=IMAGE";
+            $filepath_listing = "https://placehold.it/1920x280?text=IMAGE";
         }
 
 //        var_dump($filepath_listing);
@@ -87,14 +87,30 @@ class BusinessController extends Controller
                 array_keys($input)
             ));
         }
-        $address = $request['business_zipcode'];
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($address)."&sensor=false";
-        $json1 = file_get_contents($url);
-        $json = json_decode($json1);
-
-//        var_dump($json);
-        $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
-        $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+//        $address = $request['business_zipcode'];
+//        $location = DB::table('postcodes_geo')->where('postcode',$address)->first();
+//        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($address)."&sensor=false";
+//        $json1 = file_get_contents($url);
+//        $json = json_decode($json1);
+//
+////        var_dump($json);
+//        $lat = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lat'};
+//        $long = $json->{'results'}[0]->{'geometry'}->{'location'}->{'lng'};
+        $str1 = $request['business_address'];
+        $str2 = $request['business_city'];
+        $str3 = $request['business_state'];
+        $str_res = $str1.' '.$str2.' '.$str3;
+        $location = str_replace(' ', '+', $str_res);
+        $geo = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$location.'&sensor=false');
+        $geo = json_decode($geo, true);
+        if ($geo['status'] == 'OK') {
+            // Get Lat & Long
+            $lat = $geo['results'][0]['geometry']['location']['lat'];
+            $long = $geo['results'][0]['geometry']['location']['lng'];
+        }else{
+            $lat = -33.8063202;
+            $long = 151.0055087;
+        }
         DB::update('update business set b_title = ?, b_category = ?, b_keyword = ?, state = ?, city = ?, address = ?, postcode = ?,
             b_image = ?, b_headerimage = ?, b_description = ?, b_phone = ?, b_website = ?, b_email = ?, openinghours = ?, latitude = ?, longitude = ?, bupdate = ? WHERE userid = ?', [$request['business_title'],
             $request['business_category'], $request['business_keywords'], $request['business_state'], $request['business_city'], $request['business_address'], $request['business_zipcode'],
@@ -123,11 +139,21 @@ class BusinessController extends Controller
     }
     public function saveprofile(Request $request){
         $file = $request->file('profile_image');
-        $extention = $file->getClientOriginalExtension();
-        $filename = Auth::user()->email.'.'.$extention;
-        $destinationPath = 'uploads/profile';
-        $file->move($destinationPath, $filename);
-        $filepath = $destinationPath.'/'.$filename;
+        if(isset($file)){
+            $extention = $file->getClientOriginalExtension();
+            $filename = Auth::user()->email.'.'.$extention;
+            $destinationPath = 'uploads/profile';
+            $file->move($destinationPath, $filename);
+            $filepath = $destinationPath.'/'.$filename;
+        }
+        else{
+            $filepath = 'images/boy-256.png';
+        }
+//        $extention = $file->getClientOriginalExtension();
+//        $filename = Auth::user()->email.'.'.$extention;
+//        $destinationPath = 'uploads/profile';
+//        $file->move($destinationPath, $filename);
+//        $filepath = $destinationPath.'/'.$filename;
         $name = $request['name'];
         $phone = $request['phone'];
         $email = $request['email'];

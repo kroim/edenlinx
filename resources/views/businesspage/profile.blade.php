@@ -10,19 +10,23 @@
             <div class="dashboard-list-box margin-top-0">
                 <h4 class="gray">Profile Details</h4>
                 <div class="dashboard-list-box-static">
-                    <p class="blue-text">Image Size : 240 x 240</p>
                     <form action="{{url('business/saveprofile')}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                     <!-- Avatar -->
                         <div class="edit-profile-photo">
                             {{--<img src="images/back1.png" alt="" id="profile_img">--}}
-                            <img src="{{asset($profileImage)}}" alt="" id="profile_img">
+                            <p class="blue-text">Image Size : 240 x 240</p>
+                            @if(isset($profileImage))
+                                <img src="{{asset($profileImage)}}" alt="" id="profile_img">
+                            @else
+                                <img src="{{asset('images/boy-256.png')}}" alt="" id="profile_img">
+                            @endif
                             {{--<form action="{{url('profile/uploadfile')}}" method="post" enctype="multipart/form-data">--}}
                                 {{--{{csrf_field()}}--}}
                                 <div class="change-photo-btn">
                                     <div class="photoUpload">
                                         <span><i class="fa fa-upload"></i> Upload Photo</span>
-                                        <input accept="image/*" type="file" class="upload" name="profile_image" onchange="load_profile(event)" required/>
+                                        <input accept="image/*" type="file" class="upload" name="profile_image" onchange="load_profile(event)"/>
                                         {{--<input id="file-upload" type="file" class="upload" name="image"/>--}}
                                         {{--<input id="file-upload-submit" type="submit" style="display: none">--}}
                                     </div>

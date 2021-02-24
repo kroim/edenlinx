@@ -7,13 +7,9 @@
         pointer-events: none; /* Disables the button completely. Better than just cursor: default; */
     }
 </style>
+
     <div class="row">
         <div class="col-lg-12">
-            @if($b_check == 'false')
-                        
-                @else
-                    <h2 class="red-text">You have to complete your business details.</h2>
-                @endif
 
             <div id="add-listing">
             <form action="{{url('business/savebusiness')}}" method="POST" enctype="multipart/form-data">
@@ -166,7 +162,7 @@
 
                         <div>
                             <a href="#business_listing_img_dialog" class="popup-with-zoom-anim">
-                                <span><i class="fa fa-upload"></i> Upload Photo</span><span class="blue-text"> : Image Size : 1200 x 400</span><br>
+                                <span><i class="fa fa-upload"></i> Upload Photo</span><span class="blue-text"> : Image Size : 1920 x 280</span><br>
                                 <img id="business_listing_img_show" src="{{$b_res->b_headerimage}}">
                                 <input id="imageDataUploading1" name="imgData1" value="" style="display: none;">
                                 </a>
@@ -179,7 +175,7 @@
                         </div>
                         <div class="form-group">
                             <div id="listingupload"
-                                 style="background:#a0a0a0;width:400px;padding:1px;height:100px;margin-top:10px;border:1px solid darkgray;"></div>
+                                 style="background:#a0a0a0;width:480px;padding:1px;height:70px;margin-top:10px;border:1px solid darkgray;"></div>
                         </div>
                         <div class="form-group" style="padding-top:10px;">
                             <button onclick="$('#business-listing-img').click();">select file</button>
@@ -248,32 +244,271 @@
                     </div>
 
                     <!-- Switcher ON-OFF Content -->
+                    {{--<div class="switcher-content">--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day">--}}
+                            {{--<div class="col-md-2"><h5>Monday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_monday">--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option @if($i == 6) selected @endif>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_monday">--}}
+                                    {{--<option label="Closing Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Tuesday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_tuesday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_tuesday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Wednesday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_wednesday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_wednesday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Thursday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_thursday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_thursday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Friday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_friday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_friday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Saturday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_saturday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_saturday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                        {{--<!-- Day -->--}}
+                        {{--<div class="row opening-day js-demo-hours">--}}
+                            {{--<div class="col-md-2"><h5>Sunday</h5></div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Opening Time" name="o_sunday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-5">--}}
+                                {{--<select class="chosen-select" data-placeholder="Closing Time" name="c_sunday">--}}
+                                    {{--<!-- Hours added via JS (this is only for demo purpose) -->--}}
+                                    {{--<option label="Opening Time"></option>--}}
+                                    {{--<option>Closed</option>--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} AM</option>--}}
+                                    {{--@endfor--}}
+                                    {{--@for ($i = 1; $i <= 12; $i++)--}}
+                                        {{--<option>{{$i}} PM</option>--}}
+                                    {{--@endfor--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<!-- Day / End -->--}}
+
+                    {{--</div>--}}
                     <div class="switcher-content">
 
                         <!-- Day -->
                         <div class="row opening-day">
+                            <?php
+                            $openinghours = array();
+                            if(isset($b_res)){
+                                $openinghour = $b_res->openinghours;
+                                $openinghours = explode(', ',$openinghour);
+
+                                $hours = array();
+
+                                foreach($openinghours as $openhour){
+                                    $arr = explode('=',$openhour);
+                                    $hours[]=count($arr)==2?$arr[1]:'';
+                                }
+                            }
+                            ?>
                             <div class="col-md-2"><h5>Monday</h5></div>
                             <div class="col-md-5">
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_monday">
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[0]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[0]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM'==$hours[0]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
                             <div class="col-md-5">
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_monday">
                                     <option label="Closing Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[1]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[1]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[1]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -287,12 +522,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_tuesday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[2]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[2]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[2]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -300,12 +535,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_tuesday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[3]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[3]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM'== $hours[3]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -319,12 +554,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_wednesday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[4]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[4]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[4]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -332,12 +567,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_wednesday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[5]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[5]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[5]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -351,12 +586,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_thursday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[6]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[6]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[6]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -364,12 +599,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_thursday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[7]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[7]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[7]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -383,12 +618,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_friday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[8]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[8]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[8]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -396,12 +631,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_friday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[9]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[9]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[9]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -415,12 +650,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_saturday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[10]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[10]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[10]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -428,12 +663,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_saturday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[11]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[11]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[11]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -447,12 +682,12 @@
                                 <select class="chosen-select" data-placeholder="Opening Time" name="o_sunday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[12]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[12]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[12]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -460,12 +695,12 @@
                                 <select class="chosen-select" data-placeholder="Closing Time" name="c_sunday">
                                     <!-- Hours added via JS (this is only for demo purpose) -->
                                     <option label="Opening Time"></option>
-                                    <option>Closed</option>
+                                    <option @if(isset($b_res)&&count($hours)==14&&$hours[13]=='') selected @endif>Closed</option>
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} AM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' AM' == $hours[13]) selected @endif>{{$i}} AM</option>
                                     @endfor
                                     @for ($i = 1; $i <= 12; $i++)
-                                        <option>{{$i}} PM</option>
+                                        <option @if(isset($b_res)&&count($hours)==14&&$i.' PM' == $hours[13]) selected @endif>{{$i}} PM</option>
                                     @endfor
                                 </select>
                             </div>
@@ -493,11 +728,9 @@
     </div>
 <script>
     $(function(){
-        console.log("{{$b_check}}");
-        @if($b_check != 'false')
-            $('.dashboard-nav').find('a').addClass('btn-is-disabled');
+        @if($b_check == 'true')
+        $('#alertDlg').show();
         @endif
-
     });
 </script>
 @endsection

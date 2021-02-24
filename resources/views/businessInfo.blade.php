@@ -9,8 +9,8 @@
     {{--<a href="" data-background-image="" class="item mfp-gallery" title="Title 2"></a>--}}
     {{--<a href="" data-background-image="" class="item mfp-gallery" title="Title 4"></a>--}}
 {{--</div>--}}
-<div class="business-header-image container">
-    <img src="{{url($business->b_image)}}">
+<div class="business-header-image">
+    <img src="{{url($business->b_headerimage)}}">
     {{--<img src="{{url('images/5.png')}}">--}}
 </div>
 
@@ -42,7 +42,7 @@
                 <ul class="listing-nav">
                     <li><a href="#listing-overview" class="active">Overview</a></li>
                     {{--<li><a href="#listing-pricing-list">Pricing</a></li>--}}
-                    <li><a href="#listing-location">Location</a></li>
+                    {{--<li><a href="#listing-location">Location</a></li>--}}
                     <li><a href="#listing-reviews">Reviews</a></li>
                     <li><a href="#add-review">Add Review</a></li>
                 </ul>
@@ -53,14 +53,14 @@
                 <p>{{$business->b_description}}</p>
             </div>
             <!-- Location -->
-            <div id="listing-location" class="listing-section">
-                <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
+            {{--<div id="listing-location" class="listing-section">--}}
+                {{--<h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>--}}
 
-                <div id="singleListingMap-container">
-                    <div id="singleListingMap" data-latitude="{{$lat}}" data-longitude="{{$long}}" data-map-icon="{{$mapText}}"></div>
-                    <a href="#" id="streetView">Street View</a>
-                </div>
-            </div>
+                {{--<div id="singleListingMap-container">--}}
+                    {{--<div id="singleListingMap" data-latitude="{{$lat}}" data-longitude="{{$long}}" data-map-icon="{{$mapText}}"></div>--}}
+                    {{--<a href="#" id="streetView">Street View</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
             <!-- Reviews -->
             <div id="listing-reviews" class="listing-section">
@@ -189,9 +189,9 @@
                     {{csrf_field()}}
                     <textarea name="booking-message" cols="40" rows="5" required></textarea>
                     <ul class="listing-details-sidebar">
-                        <li><i class="sl sl-icon-phone"></i>  0424 646 929</li>
-                        <li><i class="sl sl-icon-globe"></i> <a href="#">info@edenlinx.com</a></li>
-                        <li><i class="fa fa-envelope-o"></i> <a href="#">info@edenlinx.com</a></li>
+                        <li><i class="sl sl-icon-phone"></i>  {{$business->b_phone}}</li>
+                        <li><i class="sl sl-icon-globe"></i> <a href="#">{{$business->b_website}}</a></li>
+                        <li><i class="fa fa-envelope-o"></i> <a href="#">{{$business->b_email}}</a></li>
                     </ul>
 
                     <ul class="listing-details-sidebar social-profiles">

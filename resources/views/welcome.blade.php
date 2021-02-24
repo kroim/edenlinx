@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="{{url('category/search')}}" method="POST">
-                            {{csrf_field()}}
+                        <form action="{{url('category/search')}}" method="GET">
+
                             <div class="col-fs-5">
                                 <div class="input-with-icon">
                                     <i class="sl sl-icon-magnifier"></i>
@@ -57,97 +57,97 @@
 
     <!-- Content
     ================================================== -->
-    <!--<div class="container">-->
-    <!--    <div class="row">-->
+    <div class="container">
+        <div class="row">
 
-    <!--        <div class="col-md-12">-->
-    <!--            <h3 class="headline centered margin-top-75">-->
-    <!--                Todays Popular Categories-->
-    <!--                <span>A quick reference to what others have been looking into today... see anything that tickles your fancy?</span>-->
-    <!--            </h3>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-    <!--<div class="container">-->
-    <!--    <div class="row">-->
-    <!--        <div class="col-md-12">-->
-    <!--            <div class="categories-boxes-container margin-top-5 margin-bottom-30 categories1">-->
-
-                    <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Hamburger"></i>-->
-    <!--                    <h4>Eat & Drink</h4>-->
-    <!--                </a>-->
+            <div class="col-md-12">
+                <h3 class="headline centered margin-top-75">
+                    Todays Popular Categories
+                    <span>A quick reference to what others have been looking into today... see anything that tickles your fancy?</span>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="categories-boxes-container margin-top-5 margin-bottom-30 categories1">
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im  im-icon-Sleeping"></i>-->
-    <!--                    <h4>Hotels</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Hamburger"></i>
+                        <h4>Eat & Drink</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Shopping-Bag"></i>-->
-    <!--                    <h4>Shops</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im  im-icon-Sleeping"></i>
+                        <h4>Hotels</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a class="category-small-box">-->
-    <!--                    <i class="im im-icon-Cocktail"></i>-->
-    <!--                    <h4>Nightlife</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Shopping-Bag"></i>
+                        <h4>Shops</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a  class="category-small-box">-->
-    <!--                    <i class="im im-icon-Electric-Guitar"></i>-->
-    <!--                    <h4>Events</h4>-->
-    <!--                </a>-->
+                    <a class="category-small-box">
+                        <i class="im im-icon-Cocktail"></i>
+                        <h4>Nightlife</h4>
+                    </a>
 
                     <!-- Box -->
-    <!--                <a  class="category-small-box">-->
-    <!--                    <i class="im im-icon-Dumbbell"></i>-->
-    <!--                    <h4>Fitness</h4>-->
-    <!--                </a>-->
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Electric-Guitar"></i>
+                        <h4>Events</h4>
+                    </a>
 
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-        <!--<div class="col-md-12 centered-content">-->
-        <!--    <a href="{{url('category')}}" class="button border margin-top-10">View All</a>-->
-        <!--</div>-->
+                    <!-- Box -->
+                    <a  class="category-small-box">
+                        <i class="im im-icon-Dumbbell"></i>
+                        <h4>Fitness</h4>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 centered-content">
+            <a href="{{url('category')}}" class="button border margin-top-10">View All</a>
+        </div>
     </div>
     <!-- Fullwidth Section -->
-    <!--<section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">-->
+    <section class="fullwidth margin-top-65 padding-top-75 padding-bottom-70" data-background-color="#f8f8f8">
 
-    <!--    <div class="container">-->
-    <!--        <div class="row">-->
+        <div class="container">
+            <div class="row">
 
-    <!--            <div class="col-md-12">-->
-    <!--                <h3 class="headline centered margin-bottom-45">-->
-    <!--                    Popular Businesses-->
-    <!--                    <span>These are some of our most loved businesses, is there something they can help you with?</span>-->
-    <!--                </h3>-->
-    <!--            </div>-->
+                <div class="col-md-12">
+                    <h3 class="headline centered margin-bottom-45">
+                        Popular Businesses
+                        <span>These are some of our most loved businesses, is there something they can help you with?</span>
+                    </h3>
+                </div>
 
-    <!--            <div class="col-md-12">-->
-    <!--                <div class="simple-slick-carousel dots-nav">-->
-    <!--                    @foreach($businesses as $business)-->
-    <!--                        <div class="carousel-item">-->
-    <!--                            <a href="{{url('business/info/'.$business->b_id)}}" class="listing-item-container">-->
-    <!--                                <div class="listing-item">-->
-    <!--                                    <img src="{{$business->b_image}}" alt="">-->
-    <!--                                </div>-->
-    <!--                                <h3>{{$business->b_title}}</h3>-->
-    <!--                                <span>{{$business->b_category}}</span>-->
-    <!--                            </a>-->
-    <!--                        </div>-->
-    <!--                    @endforeach-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
+                <div class="col-md-12">
+                    <div class="simple-slick-carousel dots-nav">
+                        @foreach($businesses as $business)
+                            <div class="carousel-item">
+                                <a href="{{url('business/info/'.$business->b_id)}}" class="listing-item-container">
+                                    <div class="listing-item">
+                                        <img src="{{$business->b_image}}" alt="">
+                                    </div>
+                                    <h3>{{$business->b_title}}</h3>
+                                    <span>{{$business->b_category}}</span>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <!--</section>-->
+    </section>
     <!-- Fullwidth Section / End -->
 
 
@@ -196,82 +196,5 @@
         </div>
 
     </div>
-    <!-- Info Section / End -->
 
-
-    {{--<!-- Recent Blog Posts -->--}}
-    {{--<section class="fullwidth border-top margin-top-70 padding-top-75 padding-bottom-75" data-background-color="#fff">--}}
-        {{--<div class="container">--}}
-
-            {{--<div class="row">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<h3 class="headline centered margin-bottom-45">--}}
-                        {{--From The Blog--}}
-                    {{--</h3>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-
-            {{--<div class="row">--}}
-                {{--<!-- Blog Post Item -->--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<a href="pages-blog-post.html" class="blog-compact-item-container">--}}
-                        {{--<div class="blog-compact-item">--}}
-                            {{--<img src="images/blog-compact-post-01.jpg" alt="">--}}
-                            {{--<span class="blog-item-tag">Tips</span>--}}
-                            {{--<div class="blog-compact-item-content">--}}
-                                {{--<ul class="blog-post-tags">--}}
-                                    {{--<li>22 August 2017</li>--}}
-                                {{--</ul>--}}
-                                {{--<h3>Hotels for All Budgets</h3>--}}
-                                {{--<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-                {{--<!-- Blog post Item / End -->--}}
-
-                {{--<!-- Blog Post Item -->--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<a href="pages-blog-post.html" class="blog-compact-item-container">--}}
-                        {{--<div class="blog-compact-item">--}}
-                            {{--<img src="images/blog-compact-post-02.jpg" alt="">--}}
-                            {{--<span class="blog-item-tag">Tips</span>--}}
-                            {{--<div class="blog-compact-item-content">--}}
-                                {{--<ul class="blog-post-tags">--}}
-                                    {{--<li>18 August 2017</li>--}}
-                                {{--</ul>--}}
-                                {{--<h3>The 50 Greatest Street Arts In London</h3>--}}
-                                {{--<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-                {{--<!-- Blog post Item / End -->--}}
-
-                {{--<!-- Blog Post Item -->--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<a href="pages-blog-post.html" class="blog-compact-item-container">--}}
-                        {{--<div class="blog-compact-item">--}}
-                            {{--<img src="images/blog-compact-post-03.jpg" alt="">--}}
-                            {{--<span class="blog-item-tag">Tips</span>--}}
-                            {{--<div class="blog-compact-item-content">--}}
-                                {{--<ul class="blog-post-tags">--}}
-                                    {{--<li>10 August 2017</li>--}}
-                                {{--</ul>--}}
-                                {{--<h3>The Best Cofee Shops In Sydney Neighborhoods</h3>--}}
-                                {{--<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                {{--</div>--}}
-                {{--<!-- Blog post Item / End -->--}}
-
-                {{--<div class="col-md-12 centered-content">--}}
-                    {{--<a href="pages-blog.html" class="button border margin-top-10">View Blog</a>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
-
-        {{--</div>--}}
-    {{--</section>--}}
 @endsection

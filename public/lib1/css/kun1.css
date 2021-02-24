@@ -1,7 +1,9 @@
 .business-header-image{
     padding-top: 1%;
-    height: 60%;
+    height: 48%;
     text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 .business-header-image img{
     height: 100%;
@@ -158,8 +160,8 @@
     color: blue;
 }
 #business_listing_img_show{
-    height: 200px;
-    width: 800px;
+    height: 187px;
+    width: 1280px;
 }
 #business_main_img_show {
     height: 220px;

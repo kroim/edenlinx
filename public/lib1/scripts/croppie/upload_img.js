@@ -11,13 +11,13 @@ $(document).ready(function () {
     uploadCrop = $("#listing-upload1").croppie({
         enableExif: true,
         viewport: {
-            width: 600,
-            height: 200,
+            width: 640,
+            height: 94,
             type: 'rectangle'
         },
         boundary: {
             width: 700,
-            height: 300
+            height: 150
         }
     });
 });
@@ -62,6 +62,7 @@ $('#listing-upload-complete').on('click', function () {
     // }
     $('#imageDataUploading1').val(data);
     document.getElementById("business_listing_img_show").src = data;
+    $('.mfp-close').trigger('click');
     // $("#business_listing_img_dialog").removeClass('fade').modal('hide')
     // document.getElementById("myupload").src = data;
 
@@ -125,7 +126,7 @@ $('#upload-complete-main').on('click', function () {
     // }
     $('#imageDataUploading').val(data);
     document.getElementById("business_main_img_show").src = data;
-
+    $('.mfp-close').trigger('click');
     // $("#business_listing_img_dialog").removeClass('fade').modal('hide')
     // document.getElementById("myupload").src = data;
 

@@ -1,5 +1,11 @@
 
 <header id="header-container" class="fixed fullwidth dashboard">
+    <div id="alertDlg" style="display: none;
+    background: #ea106b;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;" class="alert-danger">Your Business Listing is not Active. Please complete the Business Listing from to Active your Profile</div>
 
     <!-- Header -->
     <div id="header" class="not-sticky">

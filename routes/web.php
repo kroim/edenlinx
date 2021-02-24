@@ -55,6 +55,6 @@ Route::prefix('business')->group(function (){
 
 Route::prefix('category')->group(function (){
     Route::get('/', 'MainHomeController@displayCategory');
-    Route::post('search', 'MainHomeController@searchCategroy');
+    Route::get('search', 'MainHomeController@searchCategroy');
 
 });

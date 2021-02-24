@@ -53,8 +53,8 @@ class MainHomeController extends Controller
             $countSql = DB::table('business');
             $businessSql = DB::table('business');
         }else{
-            $countSql = DB::table('business')->where('b_title', 'like', '%'.$categoryName.'%');
-            $businessSql = DB::table('business')->where('b_title', 'like', '%'.$categoryName.'%');
+            $countSql = DB::table('business')->where('b_keyword', 'like', '%'.$categoryName.'%');
+            $businessSql = DB::table('business')->where('b_keyword', 'like', '%'.$categoryName.'%');
         }
 
         if($postalCode != ''){
@@ -63,16 +63,20 @@ class MainHomeController extends Controller
         }
 
         $count = $countSql->count();
+
         $business = $businessSql->paginate(4);
         $business->appends('categoryName',$categoryName);
         $business->appends('postalCode',$postalCode);
 
-        return view('category',['business'=>$business, 'totalCount'=>$count,'categoryName'=>$categoryName,'postalCode'=>$postalCode]);
+        $business_all = DB::table('business')->where('postcode','<>',null)->get();
+
+        return view('category',['business'=>$business, 'totalCount'=>$count,'categoryName'=>$categoryName,'postalCode'=>$postalCode, 'business_all'=>$business_all]);
     }
 
     public function displayCategory(Request $request){
         $business = DB::table('business')->paginate(4);
         $count = DB::table('business')->count();
-        return view('category',['business'=>$business, 'totalCount'=>$count]);
+        $business_all = DB::table('business')->where('postcode','<>',null)->get();
+        return view('category',['business'=>$business, 'totalCount'=>$count, 'business_all'=>$business_all]);
     }
 }

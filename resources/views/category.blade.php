@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+    {{--{{$business_all}}--}}
     <div class="fs-container">
 
         <div class="fs-inner-container content" style="height: 94vh; overflow-y: auto">
@@ -15,8 +16,8 @@
                             <div class="row with-forms">
 
                                 <!-- Main Search Input -->
-                                <form action="{{url('category/search')}}" method="POST">
-                                    {{csrf_field()}}
+                                <form action="{{url('category/search')}}" method="GET">
+
                                 <div class="col-fs-5">
                                     <div class="input-with-icon">
                                         <i class="sl sl-icon-magnifier"></i>
@@ -192,6 +193,30 @@
 
             <!-- Map -->
             <div id="map-container">
+                <div id="businessdata" style="display: none;">
+                    <?php
+                    $mapArray = array();
+
+                    //                var_dump($business);
+                    foreach ($business as $item){
+                       //  var_dump($item);
+                        array_push($mapArray, array(
+                            'id' => $item->b_id,
+                            'title' => $item->b_title,
+                            'postcode' => $item->postcode,
+                            'image' => $item->b_image,
+                            'headerimage' => $item->b_headerimage,
+                            'lat' => $item->latitude,
+                            'long' => $item->longitude,
+                            'address' => $item->address,
+                            'city' => $item->city,
+                            'rating'=>$item->rating,
+                        ));
+                    }
+                    echo json_encode($mapArray);
+                    ?>
+
+                </div>
                 <div id="map" data-map-zoom="9" data-map-scroll="true">
                     <!-- map goes here -->
                 </div>

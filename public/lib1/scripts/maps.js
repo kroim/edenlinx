@@ -30,18 +30,23 @@ var infoBox_ratingType = 'star-rating';
                '</div>'+
             '</div>')
       }
-
+      var testval = $('#businessdata').text();
+      var bInfo = JSON.parse(testval);
+      var locations = new Array();
+      for(var ind = 0; ind < bInfo.length; ind++){
+          locations.push([ locationData('/business/info/'+bInfo[ind]['id'],bInfo[ind]['image'],bInfo[ind]['title'],bInfo[ind]['postcode']+' '+bInfo[ind]['address']+' '+bInfo[ind]['city'], bInfo[ind]['rating'], '0'), bInfo[ind]['lat'], bInfo[ind]['long'], ind, '<h4><strong>'+bInfo[ind]['title'].substr(1,2)+'</strong></h4>']);
+      }
+      //   console.log(locations);
+      //   console.log(bInfo[3]);
+      // var  b_first = bInfo[1]['id'];
       // Locations
-      var locations = [
-        [ locationData('listings-single-page.html','images/listing-item-01.jpg',"Tom's Restaurant",'964 School Street, New York', '3.5', '12'), 40.94401669296697, -74.16938781738281, 1, '<i class="im im-icon-Chef-Hat"></i>'],
-        [ locationData('listings-single-page.html','images/listing-item-02.jpg','Sticky Band','Bishop Avenue, New York', '5.0', '23'), 40.77055783505125, -74.26002502441406,          2, '<i class="im im-icon-Electric-Guitar"></i>'],
-        [ locationData('listings-single-page.html','images/listing-item-03.jpg','Hotel Govendor','778 Country Street, New York', '2.0', '17'), 40.7427837, -73.11445617675781,         3, '<i class="im im-icon-Home-2"></i>' ],
-        [ locationData('listings-single-page.html','images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), 40.70437865245596, -73.98674011230469,     4, '<i class="im im-icon-Hamburger"></i>' ],
-        [ locationData('listings-single-page.html','images/listing-item-05.jpg','Airport','1512 Duncan Avenue, New York', '3.5', '46'), 40.641311, -73.778139,                         5, '<i class="im im-icon-Plane"></i>'],
-        [ locationData('listings-single-page.html','images/listing-item-06.jpg','Think Coffee','215 Terry Lane, New York', '4.5', '15'), 41.080938, -73.535957,                        6, '<i class="im im-icon-Coffee"></i>'], 
-        [ locationData('listings-single-page.html','images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), 41.079386, -73.519478,                     7, '<i class="im im-icon-Hamburger"></i>'],
-      ];
-
+      // var locations = [
+      //   [ locationData('/business/info/'+bInfo[0]['id'],'images/listing-item-01.jpg',"Tom's Restaurant",'964 School Street, New York', '3.5', '12'), -33.76, 150.99, 1, '<h4><strong>'+'B1'+'</strong></h4>'],
+      //   [ locationData('/business/info/'+bInfo[0]['id'],'images/listing-item-02.jpg','Sticky Band','Bishop Avenue, New York', '5.0', '23'), -33.87, 150.76,          2, '<h4><strong>'+'B2'+'</strong></h4>'],
+      //   [ locationData('/business/info/'+bInfo[0]['id'],'images/listing-item-03.jpg','Hotel Govendor','778 Country Street, New York', '2.0', '17'), -33.5, 150.94,   3, '<h4><strong>'+'B3'+'</strong></h4>' ],
+      //   [ locationData('/business/info/'+bInfo[0]['id'],'images/listing-item-04.jpg','Burger House','2726 Shinn Street, New York', '5.0', '31'), -33.97, 150.99,     4, '<h4><strong>'+'B4'+'</strong></h4>' ],
+      // ];
+      //   console.log(locations);
       // Chosen Rating Type
       google.maps.event.addListener(ib,'domready',function(){
          if (infoBox_ratingType = 'numerical-rating') {
@@ -77,7 +82,7 @@ var infoBox_ratingType = 'star-rating';
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: zoomLevel,
         scrollwheel: scrollEnabled,
-        center: new google.maps.LatLng(40.80, -73.70),
+        center: new google.maps.LatLng(bInfo[0]['lat'], bInfo[0]['long']),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: false,
         mapTypeControl: false,

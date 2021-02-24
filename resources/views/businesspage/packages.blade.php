@@ -188,7 +188,7 @@
                 <input type="hidden" id="package-amount" name="amount" placeholder="amount">
                 <input type="hidden" name="cpp_header_image" value="">
                 <input type="hidden" name="no_shipping" value="1">
-                <input type="hidden" name="currency_code" value="AUD">
+                <input type="hidden" name="currency_code" value="USD">
                 <input type="hidden" name="handling" value="0">
                 <input type="hidden" id="package-cancel" name="cancel_return" value="{{url('business/cancelpackages')}}">
                 <input type="hidden" name="return" id="package-success" value="">
